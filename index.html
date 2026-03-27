@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Believe Sport Makassar | Toko Olahraga Terpercaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .nav-active {
+            color: #ef4444 !important; /* text-red-600 */
+            font-weight: 600;
+        }
+
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-wa { background-color: #25D366; }
+        
+        .testimonial-card {
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
+                <h1 class="font-bold text-xl tracking-tight uppercase">BELIEVE<span class="text-red-600">SPORT</span></h1>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-wider">
+                <button onclick="navigateTo('home')" id="nav-home" class="nav-link text-slate-500 hover:text-black transition">Beranda</button>
+                <button onclick="navigateTo('tentang')" id="nav-tentang" class="nav-link text-slate-500 hover:text-black transition">Tentang</button>
+                <button onclick="navigateTo('produk')" id="nav-produk" class="nav-link text-slate-500 hover:text-black transition">Produk & Layanan</button>
+                <button onclick="navigateTo('kontak')" id="nav-kontak" class="nav-link text-slate-500 hover:text-black transition">Kontak</button>
+                <button onclick="navigateTo('artikel')" id="nav-artikel" class="nav-link text-slate-500 hover:text-black transition">Artikel</button>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/believesportmakassar/" target="_blank" class="text-slate-400 hover:text-pink-600 transition">
+                    <i class="fab fa-instagram text-lg"></i>
+                </a>
+                <button class="md:hidden text-slate-900" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-4">
+            <button onclick="navigateTo('home')" class="block w-full text-left text-sm font-medium uppercase text-slate-600">Beranda</button>
+            <button onclick="navigateTo('tentang')" class="block w-full text-left text-sm font-medium uppercase text-slate-600">Tentang</button>
+            <button onclick="navigateTo('produk')" class="block w-full text-left text-sm font-medium uppercase text-slate-600">Produk & Layanan</button>
+            <button onclick="navigateTo('kontak')" class="block w-full text-left text-sm font-medium uppercase text-slate-600">Kontak</button>
+            <button onclick="navigateTo('artikel')" class="block w-full text-left text-sm font-medium uppercase text-slate-600">Artikel</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-20">
+        <!-- PAGE: HOME -->
+        <section id="home" class="page-section active">
+            <!-- Hero -->
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-red-50 text-red-600 text-[10px] font-bold rounded-full mb-6 tracking-widest uppercase">Pusat Sport Makassar</span>
+                        <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Performa Terbaik Dimulai dari Sini.</h2>
+                        <p class="text-slate-500 text-lg mb-10 max-w-md">Koleksi terlengkap untuk kebutuhan sepak bola, futsal, hingga lari. Melayani custom jersey tim mulai dari 6 pcs saja.</p>
+                        <button onclick="navigateTo('produk')" class="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-slate-800 transition">Lihat Semua Koleksi</button>
+                    </div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" class="rounded-3xl shadow-2xl" alt="Sepatu Sport Premium">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Promo/Layanan Singkat -->
+            <div class="bg-slate-900 py-10 mt-12">
+                <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-white text-center">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-truck text-red-500 text-2xl mb-3"></i>
+                        <h4 class="font-bold">Pengiriman Cepat</h4>
+                        <p class="text-slate-400 text-xs mt-1">Siap kirim ke seluruh Indonesia</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-certificate text-red-500 text-2xl mb-3"></i>
+                        <h4 class="font-bold">Kualitas Terjamin</h4>
+                        <p class="text-slate-400 text-xs mt-1">Produk original & grade terbaik</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-users text-red-500 text-2xl mb-3"></i>
+                        <h4 class="font-bold">Custom Tim</h4>
+                        <p class="text-slate-400 text-xs mt-1">Minimal order hanya 6 pcs</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semua Jenis Koleksi (Preview) -->
+            <div class="container mx-auto px-6 py-20">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold italic tracking-tight uppercase">Koleksi Kami</h2>
+                        <p class="text-slate-500 text-sm mt-2">Temukan perlengkapan sesuai jenis olahraga Anda</p>
+                    </div>
+                    <button onclick="navigateTo('produk')" class="text-red-600 font-bold text-sm hover:underline uppercase tracking-widest">Semua Produk <i class="fas fa-arrow-right ml-2 text-xs"></i></button>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Jersey -->
+                    <div class="group cursor-pointer" onclick="navigateTo('produk')">
+                        <div class="aspect-[3/4] rounded-2xl bg-slate-100 overflow-hidden mb-4 border border-slate-100 relative">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1872&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Jersey Koleksi">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                <span class="text-white font-bold text-sm uppercase">Jersey Club</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sepatu -->
+                    <div class="group cursor-pointer" onclick="navigateTo('produk')">
+                        <div class="aspect-[3/4] rounded-2xl bg-slate-100 overflow-hidden mb-4 border border-slate-100 relative">
+                            <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Sepatu Sport Koleksi">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                <span class="text-white font-bold text-sm uppercase">Sepatu Sport</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Kaos Sport -->
+                    <div class="group cursor-pointer" onclick="navigateTo('produk')">
+                        <div class="aspect-[3/4] rounded-2xl bg-slate-100 overflow-hidden mb-4 border border-slate-100 relative">
+                            <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Kaos Sport Koleksi">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                <span class="text-white font-bold text-sm uppercase">Kaos Sport</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Aksesoris -->
+                    <div class="group cursor-pointer" onclick="navigateTo('produk')">
+                        <div class="aspect-[3/4] rounded-2xl bg-slate-100 overflow-hidden mb-4 border border-slate-100 relative">
+                            <img src="https://images.unsplash.com/photo-1549190530-0504100609b5?q=80&w=1887&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Sarung Tangan Kiper">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                                <span class="text-white font-bold text-sm uppercase">Aksesoris & Kiper</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimoni Pelanggan -->
+            <div class="bg-slate-50 py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <span class="text-red-600 font-bold text-[10px] tracking-widest uppercase">Testimoni</span>
+                        <h2 class="text-3xl font-bold mt-2 italic uppercase">Apa Kata Mereka?</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Testi 1 -->
+                        <div class="testimonial-card p-8 rounded-2xl">
+                            <div class="flex text-yellow-400 mb-4 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 text-sm italic mb-6">"Custom jersey tim futsal di sini hasilnya rapi banget. Sablonnya awet dan bahannya adem. Recommended buat tim yang mau tampil profesional!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-300 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-bold text-sm uppercase">Andi R.</h4>
+                                    <p class="text-[10px] text-slate-400 uppercase">Kapten Futsal MKS</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testi 2 -->
+                        <div class="testimonial-card p-8 rounded-2xl">
+                            <div class="flex text-yellow-400 mb-4 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 text-sm italic mb-6">"Sepatu Specs-nya original, harganya lebih terjangkau dibanding store lain di Makassar. Adminnya juga ramah banget jelasin ukurannya."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-300 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-bold text-sm uppercase">Budi Santoso</h4>
+                                    <p class="text-[10px] text-slate-400 uppercase">Pemain Amatir</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testi 3 -->
+                        <div class="testimonial-card p-8 rounded-2xl">
+                            <div class="flex text-yellow-400 mb-4 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 text-sm italic mb-6">"Nyari sarung tangan kiper yang susah dicarinya ketemu di Believe Sport. Respon cepat, langsung dikirim hari itu juga. Mantap!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-300 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-bold text-sm uppercase">Irwan</h4>
+                                    <p class="text-[10px] text-slate-400 uppercase">Goalkeeper Enthusiast</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Kami (Eksklusifitas) - UPDATE LOGO -->
+            <div class="container mx-auto px-6 py-16 border-t border-slate-100">
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-30 grayscale hover:opacity-100 transition duration-500">
+                    <img src="https://www.vectorlogo.zone/logos/nike/nike-ar21.svg" alt="Nike" class="h-8 md:h-12 w-auto">
+                    <img src="https://www.vectorlogo.zone/logos/adidas/adidas-ar21.svg" alt="Adidas" class="h-8 md:h-12 w-auto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Specs_logo.svg/512px-Specs_logo.svg.png" alt="Specs" class="h-6 md:h-8 w-auto">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Mills_Logo.png" alt="Mills" class="h-6 md:h-10 w-auto">
+                    <!-- Brand lokal lain tetap menggunakan typography logo-style untuk estetika -->
+                    <span class="font-black text-xl italic uppercase tracking-tighter">ORTHUSEIGHT</span>
+                    <span class="font-black text-xl italic uppercase tracking-tighter">GRIP</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: TENTANG -->
+        <section id="tentang" class="page-section">
+            <div class="container mx-auto px-6 py-20 max-w-4xl">
+                <h2 class="text-4xl font-bold mb-8 text-center uppercase italic tracking-tight">Tentang Kami</h2>
+                <div class="prose prose-slate lg:prose-lg mx-auto text-slate-600 text-center leading-relaxed">
+                    <p class="mb-6">
+                        <strong>Believe Sport Makassar</strong> didirikan pada tahun 2018 dengan visi menjadi pusat perlengkapan olahraga terpercaya bagi masyarakat Sulawesi Selatan. Dimulai dari kecintaan terhadap dunia sepak bola, kami kini berkembang menyediakan berbagai kategori peralatan olahraga.
+                    </p>
+                    <p class="mb-6">
+                        Kami mengerti bahwa kenyamanan dan kualitas perlengkapan sangat berpengaruh pada performa Anda di lapangan. Itulah mengapa kami hanya menyediakan produk terpilih dan layanan custom jersey dengan standar kualitas tinggi namun tetap dengan harga yang bersahabat.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mt-12 text-black font-bold">
+                        <div class="bg-slate-50 p-6 rounded-2xl">
+                            <h4 class="text-2xl text-red-600 mb-2 italic">5+ Tahun</h4>
+                            <p class="text-sm font-normal text-slate-500">Pengalaman Melayani</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl">
+                            <h4 class="text-2xl text-red-600 mb-2 italic">1000+</h4>
+                            <p class="text-sm font-normal text-slate-500">Tim Custom Jersey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: PRODUK & LAYANAN -->
+        <section id="produk" class="page-section">
+            <div class="container mx-auto px-6 py-20">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 uppercase italic tracking-tight">Produk & Layanan</h2>
+                    <p class="text-slate-500">Semua yang Anda butuhkan untuk menunjang hobi olahraga Anda.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service: Custom Jersey -->
+                    <div class="p-8 border border-slate-100 rounded-3xl bg-red-50 relative overflow-hidden group">
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                                <i class="fas fa-pen-nib text-red-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 uppercase italic tracking-tight">Custom Jersey Tim</h3>
+                            <p class="text-slate-600 text-sm mb-6 leading-relaxed">Buat jersey identitas tim sepak bola, futsal, atau voli Anda sendiri. Desain bebas dan bahan berkualitas.</p>
+                            <span class="text-xs font-black bg-white text-red-600 px-3 py-1 rounded-full border border-red-100">MINIMAL 6 PCS</span>
+                        </div>
+                    </div>
+
+                    <!-- Category: Sepatu -->
+                    <div class="p-8 border border-slate-100 rounded-3xl hover:border-slate-200 transition bg-white">
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-running text-slate-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 uppercase italic tracking-tight">Sepatu Sport</h3>
+                        <p class="text-slate-600 text-sm mb-4">Koleksi lengkap untuk:</p>
+                        <ul class="text-sm text-slate-500 space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Sepatu Futsal (Specs, Mills, dll)</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Sepatu Bola</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Sepatu Lari / Running</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: Kaos Sport -->
+                    <div class="p-8 border border-slate-100 rounded-3xl hover:border-slate-200 transition bg-white">
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-tshirt text-slate-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 uppercase italic tracking-tight">Kaos Sport & Baselayer</h3>
+                        <p class="text-slate-600 text-sm mb-4">Pakaian pendukung performa:</p>
+                        <ul class="text-sm text-slate-500 space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Kaos Polos Dry-fit</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Celana Kompresi</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Jaket Windbreaker</li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: Aksesoris -->
+                    <div class="p-8 border border-slate-100 rounded-3xl hover:border-slate-200 transition bg-white">
+                        <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-hand-holding-heart text-slate-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 uppercase italic tracking-tight">Sarung Tangan Kiper</h3>
+                        <p class="text-slate-600 text-sm mb-4">Perlindungan untuk penjaga gawang:</p>
+                        <ul class="text-sm text-slate-500 space-y-2">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Berbagai merk (Grip, Specs, dll)</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Fingersave & Roll Finger</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-8 border border-dashed border-slate-200 rounded-3xl flex flex-col items-center justify-center text-center opacity-60">
+                        <i class="fas fa-plus text-slate-400 mb-4 text-2xl"></i>
+                        <p class="text-sm font-medium text-slate-400 uppercase tracking-widest italic font-bold">Dan Perlengkapan Lainnya</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: KONTAK -->
+        <section id="kontak" class="page-section">
+            <div class="container mx-auto px-6 py-20">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-16">
+                    <div class="flex-1">
+                        <h2 class="text-4xl font-bold mb-8 italic uppercase tracking-tight">Hubungi Admin.</h2>
+                        <div class="space-y-10">
+                            <div>
+                                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">WhatsApp Order</p>
+                                <a href="https://wa.me/6287817014194" target="_blank" class="flex items-center gap-4 group">
+                                    <div class="w-12 h-12 btn-wa text-white rounded-full flex items-center justify-center text-xl shadow-lg">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <span class="text-xl font-semibold text-slate-800 group-hover:text-green-600 transition tracking-tighter">0878-1701-4194</span>
+                                </a>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Lokasi Store</p>
+                                <p class="text-slate-800 font-medium">Jl. Beruang No.XX, Mamajang,<br>Kota Makassar, Sulawesi Selatan</p>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-3">Instagram</p>
+                                <a href="https://www.instagram.com/believesportmakassar/" target="_blank" class="text-slate-800 font-medium hover:text-pink-600 transition italic">@believesportmakassar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 h-[450px] bg-slate-100 rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.7430155601284!2d119.413727!3d-5.14444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2db9f966144e5787%3A0xe6775796c8033878!2sMakassar!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: ARTIKEL -->
+        <section id="artikel" class="page-section">
+            <div class="container mx-auto px-6 py-20">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 tracking-tight uppercase italic">Artikel & Tips</h2>
+                    <p class="text-slate-500">Informasi seputar dunia olahraga dan perlengkapannya.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Article 1 -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Merawat Jersey">
+                        </div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Tips Produk</span>
+                        <h3 class="text-xl font-bold mt-2 group-hover:underline">Cara Merawat Jersey Custom Agar Sablon Awet Tahan Lama</h3>
+                        <p class="text-slate-500 text-sm mt-3 line-clamp-2">Jersey kesayangan Anda sering rusak sablonnya? Berikut adalah panduan mencuci jersey yang benar...</p>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Sepatu Lokal">
+                        </div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Seputar Futsal</span>
+                        <h3 class="text-xl font-bold mt-2 group-hover:underline">5 Rekomendasi Sepatu Futsal Lokal Terbaik 2024</h3>
+                        <p class="text-slate-500 text-sm mt-3 line-clamp-2">Merk lokal kini semakin bersaing! Simak list sepatu futsal kualitas original dengan harga terjangkau...</p>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1872&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="History Jersey">
+                        </div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Trend Jersey</span>
+                        <h3 class="text-xl font-bold mt-2 group-hover:underline">Sejarah Desain Jersey PSM Makassar dari Masa ke Masa</h3>
+                        <p class="text-slate-500 text-sm mt-3 line-clamp-2">Mengintip kembali perjalanan kostum kebanggaan tim kebanggaan Sulawesi Selatan...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-100 bg-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
+                <p class="text-slate-800 text-sm font-bold uppercase tracking-tighter">BELIEVE<span class="text-red-600 font-black">SPORT</span></p>
+            </div>
+            <p class="text-slate-400 text-[10px] tracking-widest uppercase">&copy; 2024 Believe Sport Makassar. All Rights Reserved.</p>
+            <div class="flex gap-6">
+                <a href="https://www.instagram.com/believesportmakassar/" target="_blank" class="text-slate-400 hover:text-black transition text-sm"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-slate-400 hover:text-black transition text-sm"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="text-slate-400 hover:text-black transition text-sm"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Subtle Floating WA -->
+    <a href="https://wa.me/6287817014194" target="_blank" class="fixed bottom-8 right-8 z-50 w-12 h-12 btn-wa text-white rounded-full shadow-lg flex items-center justify-center text-xl transition transform hover:scale-110">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('nav-active');
+            });
+            const activeLink = document.getElementById('nav-' + pageId);
+            if (activeLink) {
+                activeLink.classList.add('nav-active');
+            }
+
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        window.onload = () => {
+            document.getElementById('nav-home').classList.add('nav-active');
+        }
+    </script>
+</body>
+</html>
